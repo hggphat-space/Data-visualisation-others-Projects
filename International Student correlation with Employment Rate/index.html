@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+    <title>International Student Costs/Opportunity in Australia | Education Analytics</title>
+
+  <!-- Vega libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <!-- Pure.css grid -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #001f3f 0%, #BC8F8F 100%);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      box-shadow: 0 4px 20px rgba(0, 31, 63, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.03)"/></svg>');
+      opacity: 0.4;
+    }
+
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8em;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    header p {
+      font-size: 1.15em;
+      font-weight: 400;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      background: white;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      padding: 30px 20px;
+      margin: -30px auto 40px;
+      max-width: 1100px;
+      border-radius: 16px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 10px;
+    }
+
+    .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2em;
+      font-weight: 700;
+      color: #001f3f;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 0.9em;
+      color: #6b7280;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Page Container */
+    .page {
+      max-width: 1200px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+
+    /* Visualization Cards */
+    .vis-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      padding: 35px;
+      margin-bottom: 40px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(188, 143, 143, 0.1);
+    }
+
+    .vis-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 31, 63, 0.12);
+    }
+
+    /* Description Box */
+    .description-box {
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      border-left: 4px solid #BC8F8F;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+    .description-box em {
+      color: #BC8F8F;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    .description-box h2 {
+      font-family: 'Montserrat', sans-serif;
+      color: #001f3f;
+      font-size: 1.5em;
+      font-weight: 700;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .description-box h2::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #BC8F8F;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .description-box p {
+      font-size: 1em;
+      line-height: 1.8;
+      color: #4b5563;
+      margin-bottom: 12px;
+    }
+
+    .insight-tag {
+      display: inline-block;
+      background: #BC8F8F;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75em;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    .vis-container {
+      width: 100%;
+      height: 500px;
+      min-height: 450px;
+      border-radius: 12px;
+      background: #fafbfc;
+      padding: 20px;
+      border: 1px solid #e5e7eb;
+    }
+
+    footer {
+      background: #001f3f;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.95em;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>International Student Costs/Opportunity in Australia</h1>
+    <p>Comprehensive analysis of education expenses, employment opportunities, and cost distribution across Australian states and programs</p>
+  </header>
+
+  <div class="stats-bar">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-number">600K+</span>
+        <span class="stat-label">International Students</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">$50K</span>
+        <span class="stat-label">Average Annual Cost</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">6</span>
+        <span class="stat-label">States & Territories</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">60%</span>
+        <span class="stat-label">Employment Rate</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+
+    <div class="vis-card full-width-vis">
+      <div class="description-box">
+        <span class="insight-tag">Cost Analysis</span>
+        <h2>Top 3 Most Expensive Majors in Australia</h2>
+        <p>This visualization reveals the <strong>highest-cost programs</strong> for international students studying in Australia. The average total estimated costs include tuition fees, living expenses, and other associated costs measured in thousands of AUD.</p>
+        <p>Programs such as <em>Biotechnology, Climate Science, and Computer Engineering</em> consistently rank as the most expensive due to extended study durations, specialized facilities, and practical training requirements. Understanding these costs is crucial for prospective students planning their education investment.</p>           </div>
+      <div id="vis1" class="vis-container"></div>
+    </div>
+
+    <div class="vis-card full-width-vis">
+      <div class="description-box">
+        <span class="insight-tag">Employment</span>
+        <h2>States with Highest Employment Rates</h2>
+          <p>This chart highlights the <strong>top 3 Australian states</strong> with the highest employment-to-population ratios, indicating where international students are most likely to find work opportunities.</p>
+          <p>States like <em>Australian Capital Territory, Northern Territory, and Western Australia</em> often lead due to strong economies, labor shortages in key industries, and favorable employment conditions for graduates.</p>    </div>
+      <div id="vis2" class="vis-container"></div>
+    </div>
+
+    <div class="vis-card full-width-vis">
+      <div class="description-box">
+        <span class="insight-tag">Regional Distribution</span>
+        <h2>Cost Comparison Across States</h2>
+          <p>International student costs vary significantly across different Australian states. This visualization compares the <strong>average total costs</strong> including tuition and living expenses. Use the dropdown to toggle between viewing education costs and employment rates.</p>
+          <p>Cities like <em>Sydney and Melbourne</em> typically have higher costs due to accommodation prices and urban living expenses, while regional areas may offer more affordable options with quality education. The employment rate view helps identify states with better job market conditions.</p>      </div>
+      <div id="vis3" class="vis-container"></div>
+    </div>
+
+    <div class="vis-card full-width-vis">
+      <div class="description-box">
+        <span class="insight-tag">Trend Analysis</span>
+        <h2>Cost Trends by City</h2>
+          <p>This visualization compares <strong>housing costs and living cost indices</strong> across different Australian cities. The bars show average housing costs (in AUD), while the line represents the Living Cost Index, which reflects overall price levels for goods and services.</p>
+          <p>Understanding these costs helps prospective students <em>plan their budget</em> and make informed decisions about where to study. Housing is typically the largest component of living expenses, and cities with higher living cost indices generally have more expensive day-to-day expenses.</p>      </div>
+      <div id="vis4" class="vis-container"></div>
+    </div>
+
+    <div class="vis-card full-width-vis">
+      <div class="description-box">
+        <span class="insight-tag">Comprehensive Overview</span>
+        <h2>How Employment Rates Cluster Over 15 Years</h2>
+        <p>This chart shows a kernel density estimate of the employment-to-population rate over the past 15 years. Peaks indicate the most common rate levels, while shifts left or right reflect weaker or stronger labour-market conditions. Use the year slider to focus on any single year.</p>
+      </div>
+      <div id="vis5" class="vis-container"></div>
+    </div>
+
+  </div> 
+
+  <footer>
+    <p>Created by Hoang Gia Phat - 35325453 • Data sourced from Australian Government Statistics and Kaggle</p>
+    <p>Visualizations powered by <a href="https://vega.github.io/vega-lite/" target="_blank">Vega-Lite</a> • 
+      GitHub Repository: <a href="https://github.com/hoanggiaphat-monash/FIT3179-Assignment-2/tree/main" target="_blank">github.com/your-username/your-repo</a></p>
+    <p style="margin-top: 15px; font-size: 0.85em; opacity: 0.7;">© 2025 International Student Cost Analysis Dashboard</p>
+  </footer>
+
+  <script>
+    const vis1URL = "https://raw.githubusercontent.com/hoanggiaphat-monash/FIT3179-Assignment-2/refs/heads/main/Third_viz.json";
+    const vis2URL = "https://raw.githubusercontent.com/hoanggiaphat-monash/FIT3179-Assignment-2/refs/heads/main/Thirdviz2.json";
+    const vis3URL = "https://raw.githubusercontent.com/hoanggiaphat-monash/FIT3179-Assignment-2/refs/heads/main/First_viz_finished.json";
+    const vis4URL = "https://raw.githubusercontent.com/hoanggiaphat-monash/FIT3179-Assignment-2/refs/heads/main/Second_viz.json";
+    const vis5URL = "https://raw.githubusercontent.com/hoanggiaphat-monash/FIT3179-Assignment-2/refs/heads/main/Fourth_viz.json";
+
+    vegaEmbed('#vis1', vis1URL, { actions: false });
+    vegaEmbed('#vis2', vis2URL, { actions: false });
+    vegaEmbed('#vis3', vis3URL, { actions: false });
+    vegaEmbed('#vis4', vis4URL, { actions: false });
+    vegaEmbed('#vis5', vis5URL, { actions: false });
+  </script>
+</body>
+</html>

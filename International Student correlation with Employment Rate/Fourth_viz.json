@@ -1,0 +1,133 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Employment-to-Population Rate Distribution by Year",
+    "subtitle": ["Distribution showing the density of Employment-to-Population rates across Australian states", "Use the slider below to explore different years"],
+    "fontSize": 20,
+    "subtitleFontSize": 13,
+    "subtitleColor": "#5a6c7d",
+    "anchor": "start",
+    "fontWeight": "bold",
+    "color": "#1e3a5f",
+    "offset": 20
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/hoanggiaphat-monash/FIT3179-Assignment-2/refs/heads/main/clean_state_labour_force.csv",
+    "format": {"type": "csv"}
+  },
+  "params": [
+    {
+      "name": "yearSel",
+      "value": 2020,
+      "bind": {
+        "input": "range",
+        "min": 2010,
+        "max": 2025,
+        "step": 1,
+        "name": "Select Year: "
+      }
+    }
+  ],
+  "transform": [
+    {"calculate": "toNumber(datum.Year)", "as": "YearNum"},
+    {"filter": "datum.YearNum == yearSel"},
+    {"calculate": "toNumber(datum.Employment_to_pop_pct)", "as": "EmpPct"},
+    {"filter": "isValid(datum.EmpPct) && isFinite(datum.EmpPct)"},
+    {
+      "density": "EmpPct",
+      "as": ["Employment", "density"],
+      "steps": 250,
+      "groupby": ["YearNum"],
+      "bandwidth": 0.8
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "opacity": 0.4,
+        "color": {
+          "gradient": "linear",
+          "stops": [
+            {"offset": 0, "color": "#e3f2fd"},
+            {"offset": 1, "color": "#1976d2"}
+          ]
+        },
+        "interpolate": "monotone",
+        "line": true
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "color": "#0d47a1",
+        "strokeWidth": 3,
+        "interpolate": "monotone"
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 50,
+        "color": "#1565c0",
+        "opacity": 0.6
+      },
+      "transform": [
+        {"filter": "datum.density > 0.01"}
+      ]
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Employment",
+      "type": "quantitative",
+      "title": "Employment-to-Population Rate (%)",
+      "scale": {
+        "domain": [55, 70]
+      },
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 12,
+        "titleFontSize": 14,
+        "tickCount": 10,
+        "grid": true,
+        "gridOpacity": 0.3,
+        "gridColor": "#e0e0e0",
+        "titlePadding": 10,
+        "titleFontWeight": "bold",
+        "titleColor": "#1e3a5f"
+      }
+    },
+    "y": {
+      "field": "density",
+      "type": "quantitative",
+      "title": "Density",
+      "axis": {
+        "labelFontSize": 12,
+        "titleFontSize": 14,
+        "grid": true,
+        "gridOpacity": 0.2,
+        "gridColor": "#e0e0e0",
+        "titlePadding": 10,
+        "titleFontWeight": "bold",
+        "titleColor": "#1e3a5f"
+      }
+    },
+    "tooltip": [
+      {"field": "YearNum", "type": "quantitative", "title": "Year", "format": "d"},
+      {"field": "Employment", "type": "quantitative", "format": ".2f", "title": "Employment Rate (%)"},
+      {"field": "density", "type": "quantitative", "format": ".4f", "title": "Density Value"}
+    ]
+  },
+  "width": 700,
+  "height": 420,
+  "background": "#fafbfc",
+  "config": {
+    "view": {
+      "stroke": "#b0bec5",
+      "strokeWidth": 1.5
+    },
+    "font": "Segoe UI, Arial, sans-serif"
+  }
+}

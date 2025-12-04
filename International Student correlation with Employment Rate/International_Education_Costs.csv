@@ -1,0 +1,87 @@
+Country,City,State,University,Program,Level,Duration_Years,Tuition_USD,Living_Cost_Index,Rent_USD,Visa_Fee_USD,Insurance_USD,Exchange_Rate,Housing_Total_USD,Tuition_Total_USD,Other_Cost,Total_Est_USD,Total_Est_AUD
+Australia,Melbourne,VIC,University of Melbourne,Engineering,Master,2,42000,71.2,1400,450,650,1.52,33600,84000,1100,118700,182798
+Australia,Canberra,ACT,Australian National University,Climate Science,PhD,4,29800,70.2,1400,450,650,1.52,67200,119200,1100,187500,288750
+Australia,Sydney,NSW,University of Sydney,Business,Bachelor,3,35000,72.8,1600,450,650,1.52,57600,105000,1100,163700,252098
+Australia,Adelaide,SA,University of Adelaide,Computer Science,Bachelor,3,32800,68.5,1100,450,650,1.52,39600,98400,1100,139100,214214
+Australia,Perth,WA,University of Western Australia,Software Engineering,Master,2,34500,69.8,1200,450,650,1.52,28800,69000,1100,98900,152306
+Australia,Gold Coast,QLD,Griffith University,Information Technology,Bachelor,3,31200,67.5,1100,450,650,1.52,39600,93600,1100,134300,206822
+Australia,Hobart,TAS,University of Tasmania,Data Science,Master,2,30800,65.4,950,450,650,1.52,22800,61600,1100,85500,131670
+Australia,Newcastle,NSW,University of Newcastle,Computer Engineering,Bachelor,4,31500,66.8,1000,450,650,1.52,48000,126000,1100,175100,269654
+Australia,Wollongong,NSW,University of Wollongong,Artificial Intelligence,Master,2,32900,67.2,1050,450,650,1.52,25200,65800,1100,92100,141834
+Australia,Darwin,NT,Charles Darwin University,Information Systems,Bachelor,3,29800,64.5,900,450,650,1.52,32400,89400,1100,122900,189266
+Australia,Townsville,QLD,James Cook University,Data Analytics,Master,2,31200,65.8,950,450,650,1.52,22800,62400,1100,86300,132902
+Australia,Sunshine Coast,QLD,USC,Software Development,Bachelor,3,29500,66.2,1000,450,650,1.52,36000,88500,1100,125600,193424
+Australia,Armidale,NSW,University of New England,Computing Science,Master,2,30500,64.8,850,450,650,1.52,20400,61000,1100,82500,127050
+Australia,Melbourne,VIC,University of Melbourne,Computer Science,Bachelor,3,42500,72.8,1800,450,650,1.52,64800,127500,1100,193400,297836
+Australia,Melbourne,VIC,University of Melbourne,Computer Science,Master,2,45800,72.8,1800,450,650,1.52,43200,91600,1100,135900,209286
+Australia,Melbourne,VIC,University of Melbourne,Computer Science,PhD,4,35000,72.8,1800,450,650,1.52,86400,140000,1100,227500,350350
+Australia,Sydney,NSW,University of Sydney,Computer Science,Bachelor,3,41800,74.5,2000,450,650,1.52,72000,125400,1100,198500,305690
+Australia,Sydney,NSW,University of Sydney,Computer Science,Master,2,44900,74.5,2000,450,650,1.52,48000,89800,1100,138900,213906
+Australia,Sydney,NSW,University of Sydney,Computer Science,PhD,4,34500,74.5,2000,450,650,1.52,96000,138000,1100,235100,362054
+Australia,Canberra,ACT,Australian National University,Computer Science,Bachelor,3,41200,68.9,1600,450,650,1.52,57600,123600,1100,182300,280742
+Australia,Canberra,ACT,Australian National University,Computer Science,Master,2,44200,68.9,1600,450,650,1.52,38400,88400,1100,127900,196966
+Australia,Canberra,ACT,Australian National University,Computer Science,PhD,4,34000,68.9,1600,450,650,1.52,76800,136000,1100,213900,329406
+Australia,Brisbane,QLD,University of Queensland,Computer Science,Bachelor,3,40500,69.2,1500,450,650,1.52,54000,121500,1100,176600,271964
+Australia,Brisbane,QLD,University of Queensland,Computer Science,Master,2,43500,69.2,1500,450,650,1.52,36000,87000,1100,124100,191114
+Australia,Brisbane,QLD,University of Queensland,Computer Science,PhD,4,33500,69.2,1500,450,650,1.52,72000,134000,1100,207100,318934
+Australia,Sydney,NSW,University of New South Wales,Computer Science,Bachelor,3,40200,74.5,1900,450,650,1.52,68400,120600,1100,190100,292754
+Australia,Sydney,NSW,University of New South Wales,Computer Science,Master,2,43200,74.5,1900,450,650,1.52,45600,86400,1100,133100,204974
+Australia,Sydney,NSW,University of New South Wales,Computer Science,PhD,4,33200,74.5,1900,450,650,1.52,91200,132800,1100,225100,346654
+Australia,Melbourne,VIC,Monash University,Computer Science,Bachelor,3,39800,72.8,1700,450,650,1.52,61200,119400,1100,181700,279818
+Australia,Melbourne,VIC,Monash University,Computer Science,Master,2,42800,72.8,1700,450,650,1.52,40800,85600,1100,127500,196350
+Australia,Melbourne,VIC,Monash University,Computer Science,PhD,4,32800,72.8,1700,450,650,1.52,81600,131200,1100,213900,329406
+Australia,Adelaide,SA,University of Adelaide,Computer Science,Bachelor,3,39200,67.5,1400,450,650,1.52,50400,117600,1100,169100,260414
+Australia,Adelaide,SA,University of Adelaide,Computer Science,Master,2,42200,67.5,1400,450,650,1.52,33600,84400,1100,119100,183414
+Australia,Adelaide,SA,University of Adelaide,Computer Science,PhD,4,32200,67.5,1400,450,650,1.52,67200,128800,1100,197100,303534
+Australia,Perth,WA,University of Western Australia,Computer Science,Bachelor,3,38800,68.2,1500,450,650,1.52,54000,116400,1100,171500,264110
+Australia,Perth,WA,University of Western Australia,Computer Science,Master,2,41800,68.2,1500,450,650,1.52,36000,83600,1100,120700,185878
+Australia,Perth,WA,University of Western Australia,Computer Science,PhD,4,31800,68.2,1500,450,650,1.52,72000,127200,1100,200300,308462
+Australia,Brisbane,QLD,Queensland University of Technology,Computer Science,Bachelor,3,38200,69.2,1400,450,650,1.52,50400,114600,1100,166100,255794
+Australia,Brisbane,QLD,Queensland University of Technology,Computer Science,Master,2,41200,69.2,1400,450,650,1.52,33600,82400,1100,117100,180334
+Australia,Brisbane,QLD,Queensland University of Technology,Computer Science,PhD,4,31200,69.2,1400,450,650,1.52,67200,124800,1100,193100,297374
+Australia,Sydney,NSW,University of Technology Sydney,Computer Science,Bachelor,3,37800,74.5,1800,450,650,1.52,64800,113400,1100,179300,276122
+Australia,Sydney,NSW,University of Technology Sydney,Computer Science,Master,2,40800,74.5,1800,450,650,1.52,43200,81600,1100,125900,193886
+Australia,Sydney,NSW,University of Technology Sydney,Computer Science,PhD,4,30800,74.5,1800,450,650,1.52,86400,123200,1100,210700,324478
+Australia,Melbourne,VIC,RMIT University,Computer Science,Bachelor,3,37200,72.8,1600,450,650,1.52,57600,111600,1100,170300,262262
+Australia,Melbourne,VIC,RMIT University,Computer Science,Master,2,40200,72.8,1600,450,650,1.52,38400,80400,1100,119900,184646
+Australia,Melbourne,VIC,RMIT University,Computer Science,PhD,4,30200,72.8,1600,450,650,1.52,76800,120800,1100,198700,305998
+Australia,Wollongong,NSW,University of Wollongong,Computer Science,Bachelor,3,36800,65.8,1300,450,650,1.52,46800,110400,1100,158300,243782
+Australia,Wollongong,NSW,University of Wollongong,Computer Science,Master,2,39800,65.8,1300,450,650,1.52,31200,79600,1100,111900,172326
+Australia,Wollongong,NSW,University of Wollongong,Computer Science,PhD,4,29800,65.8,1300,450,650,1.52,62400,119200,1100,182700,281358
+Australia,Newcastle,NSW,University of Newcastle,Computer Science,Bachelor,3,36200,66.2,1300,450,650,1.52,46800,108600,1100,156500,241010
+Australia,Newcastle,NSW,University of Newcastle,Computer Science,Master,2,39200,66.2,1300,450,650,1.52,31200,78400,1100,110700,170478
+Australia,Newcastle,NSW,University of Newcastle,Computer Science,PhD,4,29200,66.2,1300,450,650,1.52,62400,116800,1100,180300,277662
+Australia,Hobart,TAS,University of Tasmania,Computer Science,Bachelor,3,35800,64.5,1200,450,650,1.52,43200,107400,1100,151700,233618
+Australia,Hobart,TAS,University of Tasmania,Computer Science,Master,2,38800,64.5,1200,450,650,1.52,28800,77600,1100,107500,165550
+Australia,Hobart,TAS,University of Tasmania,Computer Science,PhD,4,28800,64.5,1200,450,650,1.52,57600,115200,1100,173900,267806
+Australia,Gold Coast,QLD,Griffith University,Computer Science,Bachelor,3,35200,68.5,1400,450,650,1.52,50400,105600,1100,157100,241934
+Australia,Gold Coast,QLD,Griffith University,Computer Science,Master,2,38200,68.5,1400,450,650,1.52,33600,76400,1100,111100,171094
+Australia,Gold Coast,QLD,Griffith University,Computer Science,PhD,4,28200,68.5,1400,450,650,1.52,67200,112800,1100,181100,278894
+Australia,Canberra,ACT,University of Canberra,Computer Science,Bachelor,3,34800,68.9,1500,450,650,1.52,54000,104400,1100,159500,245630
+Australia,Canberra,ACT,University of Canberra,Computer Science,Master,2,37800,68.9,1500,450,650,1.52,36000,75600,1100,112700,173558
+Australia,Canberra,ACT,University of Canberra,Computer Science,PhD,4,27800,68.9,1500,450,650,1.52,72000,111200,1100,184300,283822
+Australia,Townsville,QLD,James Cook University,Computer Science,Bachelor,3,34200,65.2,1200,450,650,1.52,43200,102600,1100,146900,226226
+Australia,Townsville,QLD,James Cook University,Computer Science,Master,2,37200,65.2,1200,450,650,1.52,28800,74400,1100,104300,160622
+Australia,Townsville,QLD,James Cook University,Computer Science,PhD,4,27200,65.2,1200,450,650,1.52,57600,108800,1100,167500,257950
+Australia,Armidale,NSW,University of New England,Computer Science,Bachelor,3,33800,63.8,1100,450,650,1.52,39600,101400,1100,142100,218834
+Australia,Armidale,NSW,University of New England,Computer Science,Master,2,36800,63.8,1100,450,650,1.52,26400,73600,1100,101100,155694
+Australia,Armidale,NSW,University of New England,Computer Science,PhD,4,26800,63.8,1100,450,650,1.52,52800,107200,1100,161100,248094
+Australia,Toowoomba,QLD,University of Southern Queensland,Computer Science,Bachelor,3,33200,64.2,1100,450,650,1.52,39600,99600,1100,140300,216062
+Australia,Toowoomba,QLD,University of Southern Queensland,Computer Science,Master,2,36200,64.2,1100,450,650,1.52,26400,72400,1100,99900,153846
+Australia,Toowoomba,QLD,University of Southern Queensland,Computer Science,PhD,4,26200,64.2,1100,450,650,1.52,52800,104800,1100,158700,244398
+Australia,Ballarat,VIC,Federation University,Computer Science,Bachelor,3,32800,63.5,1000,450,650,1.52,36000,98400,1100,135500,208670
+Australia,Ballarat,VIC,Federation University,Computer Science,Master,2,35800,63.5,1000,450,650,1.52,24000,71600,1100,96700,148918
+Australia,Ballarat,VIC,Federation University,Computer Science,PhD,4,25800,63.5,1000,450,650,1.52,48000,103200,1100,152300,234542
+Australia,Lismore,NSW,Southern Cross University,Computer Science,Bachelor,3,32200,63.2,1000,450,650,1.52,36000,96600,1100,133700,205898
+Australia,Lismore,NSW,Southern Cross University,Computer Science,Master,2,35200,63.2,1000,450,650,1.52,24000,70400,1100,95500,147070
+Australia,Lismore,NSW,Southern Cross University,Computer Science,PhD,4,25200,63.2,1000,450,650,1.52,48000,100800,1100,149900,230846
+Australia,Melbourne,VIC,University of Melbourne,Artificial Intelligence,PhD,4,29000,72.4,1500,450,650,1.52,72000,116000,1100,189100,291214
+Australia,Sydney,NSW,University of Sydney,Biotechnology,PhD,4,31000,75.6,1700,450,650,1.52,81600,124000,1100,206700,318318
+Australia,Brisbane,QLD,University of Queensland,Data Science,Master,2,32000,68.7,1200,450,650,1.52,28800,64000,1100,93900,144606
+Australia,Perth,WA,University of Western Australia,Physics,Master,2,30000,67.2,1100,450,650,1.52,26400,60000,1100,87500,134750
+Australia,Adelaide,SA,University of Adelaide,Chemistry,PhD,4,28000,64.5,1000,450,650,1.52,48000,112000,1100,161100,248094
+Australia,Canberra,ACT,Australian National University,Computer Science,PhD,4,33000,69.8,1300,450,650,1.52,62400,132000,1100,195500,301070
+Australia,Gold Coast,QLD,Griffith University,Data Science,Master,2,29000,65.4,1100,450,650,1.52,26400,58000,1100,85500,131670
+Australia,Newcastle,NSW,University of Newcastle,Chemistry,Master,2,27000,63.2,950,450,650,1.52,22800,54000,1100,77900,119966
+Australia,Hobart,TAS,University of Tasmania,Physics,Bachelor,3,26000,62.1,900,450,650,1.52,32400,78000,1100,111500,171710
+Australia,Wollongong,NSW,University of Wollongong,Mathematics,PhD,4,28000,63.4,950,450,650,1.52,45600,112000,1100,158700,244398

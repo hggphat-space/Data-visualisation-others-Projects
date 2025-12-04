@@ -1,0 +1,142 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Dual-axis chart: Avg Housing Cost (AUD, k) by city as bars; Avg Living Cost Index (LCI) as a line.",
+  "title": {
+    "text": "Housing Cost and Living Index by City",
+    "subtitle": "LCI indicates price changes in household goods/services • Avg housing cost converted to AUD (1 USD ≈ 1.7 AUD)"
+  },
+  "width": 700,
+  "height": 520,
+  "padding": {"left": 60, "right": 90, "top": 20, "bottom": 6},
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/hoanggiaphat-monash/FIT3179-Assignment-2/refs/heads/main/International_Education_Costs.csv"
+  },
+
+  "transform": [
+    {
+      "aggregate": [
+        {"op": "mean", "field": "Housing_Total_USD", "as": "avg_housing_usd"},
+        {"op": "mean", "field": "Living_Cost_Index", "as": "avg_lci"}
+      ],
+      "groupby": ["City"]
+    },
+    {"calculate": "datum.avg_housing_usd * 1.7", "as": "avg_housing_aud"},
+    {"calculate": "datum.avg_housing_aud / 1000", "as": "avg_housing_aud_k"},
+    {
+      "window": [{"op": "rank", "as": "order"}],
+      "sort": [{"field": "avg_lci", "order": "ascending"}]
+    }
+  ],
+
+  "layer": [
+    {
+      "name": "Housing (bars)",
+      "mark": {
+        "type": "bar",
+        "opacity": 0.9,
+        "cornerRadiusTopLeft": 3,
+        "cornerRadiusTopRight": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "City",
+          "type": "nominal",
+          "sort": {"field": "order", "order": "ascending"},
+          "axis": {
+            "labelAngle": -35,
+            "labelLimit": 140,
+            "labelOverlap": false,
+            "tickSize": 0,
+            "grid": true,
+            "gridOpacity": 0.25,
+            "gridDash": [2, 4],
+            "domain": false
+          }
+        },
+        "y": {
+          "field": "avg_housing_aud_k",
+          "type": "quantitative",
+          "axis": {
+            "title": "Avg Housing Cost (AUD, thousands)",
+            "titleColor": "#BC8F8F",
+            "grid": true,
+            "gridDash": [2, 3],
+            "gridOpacity": 0.35,
+            "offset": 10
+          }
+        },
+        "color": {"value": "#BC8F8F"},
+        "tooltip": [
+          {"field": "City", "type": "nominal"},
+          {"field": "avg_housing_usd", "type": "quantitative", "title": "Avg Housing (USD)", "format": ",.0f"},
+          {"field": "avg_housing_aud", "type": "quantitative", "title": "Avg Housing (AUD)", "format": ",.0f"},
+          {"field": "avg_lci", "type": "quantitative", "title": "Avg LCI", "format": ".1f"}
+        ],
+        "order": {"field": "order", "type": "quantitative"}
+      },
+      "zindex": 0
+    },
+
+    {
+      "name": "Living Index (line on top)",
+      "mark": {
+        "type": "line",
+        "interpolate": "monotone",
+        "point": {"filled": true, "size": 60, "stroke": "white", "strokeWidth": 1.5},
+        "strokeWidth": 3,
+        "opacity": 1.0
+      },
+      "encoding": {
+        "x": {
+          "field": "City",
+          "type": "nominal",
+          "sort": {"field": "order", "order": "ascending"}
+        },
+        "y": {
+          "field": "avg_lci",
+          "type": "quantitative",
+          "axis": {
+            "title": "Avg Living Cost Index (LCI)",
+            "titleColor": "#1E78C8",
+            "orient": "right",
+            "grid": false,
+            "format": ".0f",
+            "offset": 40
+          }
+        },
+        "color": {"value": "#1E78C8"},
+        "tooltip": [
+          {"field": "City", "type": "nominal"},
+          {"field": "avg_lci", "type": "quantitative", "title": "Avg LCI", "format": ".1f"},
+          {"field": "avg_housing_aud", "type": "quantitative", "title": "Avg Housing (AUD)", "format": ",.0f"}
+        ],
+        "order": {"field": "order", "type": "quantitative"}
+      },
+      "zindex": 2
+    }
+  ],
+
+  "resolve": {"scale": {"y": "independent"}},
+
+  "config": {
+    "background": "white",
+    "title": {
+      "color": "#0B2950",
+      "subtitleColor": "#4A4A4A",
+      "fontSize": 22,
+      "subtitleFontSize": 13,
+      "subtitlePadding": 6,
+      "anchor": "start"
+    },
+    "axis": {
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "labelColor": "#3a3a3a",
+      "titleColor": "#3a3a3a",
+      "domainColor": "#e6e6e6",
+      "tickColor": "#e6e6e6"
+    },
+    "view": {"stroke": null}
+  }
+}
